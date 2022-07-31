@@ -1,12 +1,5 @@
-/*
-createElement - создание элемента
-appendChild - добавить элемент на страницу
-remove - удаление элемента
-clearInterval - останавливать таймер
- */
 audioPlayer = document.querySelector("audio");
 audioPlayer.volume = 0.2;
-// console.dir(audioPlayer);
 startButton = document.querySelector("#start button");
 startBlock = document.querySelector("#start");
 gameBlock = document.querySelector("#game");
@@ -52,7 +45,7 @@ function startGame() {
     gameBlock.style.display = "block"; // отобразить блок игра
     gamer.className = gamerSkin;
     createLifes();
-    // createEnemy(); // создать врага
+    // createEnemy(); // создать 1 врага
     createMultipleEnemy(); // создание нескольких врагов от 1 до 5
 }
 
@@ -116,7 +109,6 @@ function moveBullet(bullet) {
 /*
 1. Попадание по врагу
 2. Уменьшение жизней если враг пролетел
-
  */
 score = document.querySelector("#score span");
 
@@ -127,12 +119,12 @@ function isBoom(bullet) {
             && bullet.offsetTop < enemy.offsetTop + enemy.clientHeight
             && bullet.offsetLeft > enemy.offsetLeft) {
             bullet.remove();
-            createBoom(enemy );
+            createBoom(enemy);
             enemy.remove();
             score.innerHTML = Number(score.innerHTML) + 1;
-            let timerID = setTimeout(function () {
-            createEnemy();
-            clearInterval(timerID); // остановить таймер
+            let timerID = setTimeout(function () { // задержка создания врага после его исчезновения
+                createEnemy();
+                clearInterval(timerID); // остановить таймер
             }, 1000)
         }
     }
@@ -172,13 +164,6 @@ function createLifes() {
     }
 }
 
-/*
-1 сделать появление врага в случайном месте экрана по вертикали(top)
-  - top + 50px DONE
-  - top = app.clientHeight - 140px DONE
-2 Сделать появление случайного скина врага
-3 Завершение игры
- */
 function random(min, max) {
     // получить случайное число от (min-0.5) до (max+0.5)
     let rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -196,11 +181,11 @@ function endGame() {
 
     // удаляем все таймауты
     var max_id;
-    max_id = setTimeout(function () {});
+    max_id = setTimeout(function () {
+    });
     while (max_id--) {
         clearTimeout(max_id);
     }
-
 }
 
 function restart() {
