@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Workshop game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<audio>
+    <source src="audio/1.mp3">
+</audio>
+<div id="video-bg">
+    <video width="100%" height="auto" preload="auto" autoplay="true" loop="true" muted="muted"
+           poster="images/bg-poster.png">
+        <source src="images/bg.mp4" type="video/mp4"></source>
+        <source src="images/bg.webm" type="video/webm"></source>
+    </video>
+</div>
+
+<div id="app">
+    <div id="game" style="display: none;">
+        <div id="lifes">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="options">
+            <div id="score">
+                Score: <span>0</span>
+            </div>
+            <div id="sound">
+                <img src="images/mute_sound.png">
+            </div>
+        </div>
+
+        <div id="player" class="skin_1"></div>
+
+    </div>
+
+
+    <div id="start">
+        <h2>Выбери игрока</h2>
+
+        <div id="select-player" class="clearfix">
+				<span class="selected" id="skin_1">
+					<img src="images/player_1.png">
+				</span>
+
+            <span id="skin_2">
+					<img src="images/player_2.png">
+				</span>
+        </div>
+        <button>Start</button>
+    </div>
+
+    <div id="end" style="display: none;">
+        <h2>Вы проиграли</h2>
+        <h3>Вы набрали: <span>30</span> очков</h3>
+        <h4>Перезапуск игры:</h4>
+        <button>Restart</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
